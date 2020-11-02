@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>05211940000013</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .label {float: left; width: 200px; margin-top: 10px;}  
+        .infobox {width: 200px; margin-top: 10px; }  
+        .error { color: red; padding-left: 10px; } 
+        .submit { margin-left: 200px; margin-top: 15px;}  
+    </style>
+</head>
+<body>
+     
+    <script>
+        $(document).ready(function () {  //method specifies what happens when a ready event occurs. 
+            $('.error').hide();  //method hides the selected elements
+            $('.submit').click(function(event) {   // triggers the submit event, or attaches a function to run when a submit event occurs
+                var data=$('.infobox').val(); //untuk menyimpan data
+                if(validate_phoneno(data))
+                {
+                    $('.error').hide();
+                }
+                else 
+                {
+                $('.error').show(); //method writes an error message to the console    
+                event.preventDefault(); //method stops the default action of an element from happening. 
+                }    
+            });  
+         });
+             function validate_phoneno(ph) //This function returns true (1) if the variable is a number or a numeric string
+             {   
+                 var pattern=new RegExp(/^[0-9-+]+$/);  //menyimpan data 
+                 return pattern.test(ph); //Returns the number of times the pattern was found in the string 
+             } 
+
+    </script>
+    <form id="signup" method="post" action="">  
+        <div class="bg-primary text-white">
+            <span class="label">Nomor rekening </span>
+            <input type="text"  class="infobox" name="phone" />
+            <span class="error"> Nomor rekening tidak valid</span>
+        </div>    
+            <input class="submit" type="submit" value="Submit"> 
+    </form> 
+    <div class="container">
+        <h2>Sampaikan Keluhan Anda</h2>
+        <p>(mis: "mengapa saya cepat sekali menghabiskan uang?"</p>
+        <form action="/action_page.php">
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+      </div>
+</div>  
+</body>
+</html>
